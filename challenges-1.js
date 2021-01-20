@@ -22,16 +22,16 @@
 // Return a number.
 
 function getTotalPassengers(data) {
-	return 0
-}
+	return data.length
 
+}
 // 2 ---------------------------------------------------------------
 // Return the number of surviving passengers. A passenger survived 
 // if their survived property is "Yes".
 // Return a number.
 
 function getSurvivorCount(data) {
-	return 0
+	return data.filter(item => item.fields.survived === "Yes").length
 }
 
 // 3 ---------------------------------------------------------------
@@ -39,7 +39,8 @@ function getSurvivorCount(data) {
 // Return a number.
 
 function getCasualityCount(data) {
-	return 0
+	return data.filter(item => item.fields.survived === "No").length
+
 }
 
 // 4 ---------------------------------------------------------------
