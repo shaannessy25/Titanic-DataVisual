@@ -50,9 +50,8 @@ function getCasualityCount(data) {
 // Return a number
 
 function countPassengersInClass(data, pclass) {
-	return 0
+	return data.filter(item => item.fields.pclass === pclass).length
 }
-
 // 5 ---------------------------------------------------------------
 // Return the number of survivors in a class. This function takes 
 // the data and passenger class. Return only passengers  
