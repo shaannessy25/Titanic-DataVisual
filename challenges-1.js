@@ -74,14 +74,14 @@ function getCasualityCountForClass(data, pclass) {
 // passenger data where the age is missing. 
 
 function getMinAge(data) {
-	return 0
+	return Math.min(...data.filter(item => item.fields.age !== undefined).map(item => item.fields.age))
 }
 
 // 8 ---------------------------------------------------------------
 // Return the age of the oldest passenger. 
 
 function getMaxAge(data) {
-	return 0
+	return Math.max(...data.filter(item => item.fields.age !== undefined).map(item => item.fields.age))
 }
 
 // 9 ---------------------------------------------------------------
