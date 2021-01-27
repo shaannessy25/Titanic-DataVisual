@@ -25,6 +25,7 @@
 // Or if property = 'age' -> [40, 26, 22, 28, 23, 45, 21, ...]
 
 function getAllValuesForProperty(data, property) {
+	
 	return []
 }
 

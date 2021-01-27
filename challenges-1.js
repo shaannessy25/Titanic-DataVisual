@@ -90,7 +90,8 @@ function getMaxAge(data) {
 // or Q. 
 
 function getEmbarkedCount(data, embarked) {
-	return 0
+	//input: embarked value output: Total number
+	return data.filter(item => item.fields.embarked === embarked).length
 }
 
 // 10 ---------------------------------------------------------------
@@ -98,7 +99,7 @@ function getEmbarkedCount(data, embarked) {
 // for some passengers you'll need to filter this out! 
 
 function getMinFare(data) {
-	return 0
+	return Math.min(...data.filter(item => item.fields.fare !== undefined).map(item => item.fields.fare))
 }
 
 // 11 ---------------------------------------------------------------
@@ -106,28 +107,28 @@ function getMinFare(data) {
 // passengers are missing data for fare.
 
 function getMaxFare(data) {
-	return 0
+	return Math.max(...data.filter(item => item.fields.fare !== undefined).map(item => item.fields.fare))
 }
 
 // 12 ---------------------------------------------------------------
 // Return the count of passengers by gender. 
 
 function getPassengersByGender(data, gender) {
-	return 0
+	return data.filter(item => item.fields.sex === gender).length
 }
 
 // 13 ---------------------------------------------------------------
 // Return the number of passengers who survived by gender. 
 
 function getSurvivorsByGender(data, gender) {
-	return 0
+	return data.filter(item => item.fields.sex === gender && item.fields.survived === 'Yes').length
 }
 
 // 14 ---------------------------------------------------------------
 // Return the number of passengers who did not survived by gender. 
 
 function getCasualitiesByGender(data, gender) {
-	return 0
+	return data.filter(item => item.fields.sex === gender && item.fields.survived === 'No').length
 }
 
 // 15 ---------------------------------------------------------------
@@ -168,14 +169,15 @@ function getAllOfField(data, field) {
 // Return the total of all fares paid. 
 
 function getTotalFare(data) {
-	return 0
+	return data.reduce((acc, data) => acc + data.fields.fare, 0)
 }
 
 // 20 --------------------------------------------------------------
 // Return the average fare paid.
 
 function getAverageFare(data) {
-	return 0
+	const fares = data.filter(item => item.fields.fare !== undefined).map(item => item.fields.fare)
+	return fares.reduce((acc, fare) => acc + fare, 0) / data.length
 }
 
 // 21 --------------------------------------------------------------
@@ -190,7 +192,8 @@ function getMedianFare(data) {
 // Return the average age of all passengers. 
 
 function getAverageAge(data) {
-	return 0
+	const ages = data.filter(item => item.fields.age !== undefined).map(item => item.fields.age)
+	return ages.reduce((acc, age) => acc + age, 0) / ages.length
 }
 
 // 23 --------------------------------------------------------------
@@ -204,7 +207,8 @@ function getMedianAge(data) {
 // 
 
 function getAverageAgeByGender(data, gender) {
-	return 0
+	const ages = data.filter(item => item.fields.age !== undefined && item.fields.sex == gender).map(item => item.fields.age)
+	return ages.reduce((acc, age) => acc + age, 0) / ages.length
 }
 
 // --------------------------------------------------------------

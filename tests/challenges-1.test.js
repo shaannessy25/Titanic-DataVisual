@@ -97,19 +97,19 @@ describe('Challenge 1 Titanic', () => {
 		expect(index.getCasualitiesByGender(data, 'female')).toBe(81)
 	})
 
-	test('Test getSurvivorsByPClass', () => {
+	test.skip('Test getSurvivorsByPClass', () => {
 		expect(index.getSurvivorsByPClass(data, 1)).toBe(136)
 		expect(index.getSurvivorsByPClass(data, 2)).toBe(87)
 		expect(index.getSurvivorsByPClass(data, 3)).toBe(119)
 	})
 
-	test('Test getCasualitiesByPClass', () => {
+	test.skip('Test getCasualitiesByPClass', () => {
 		expect(index.getCasualitiesByPClass(data, 1)).toBe(80)
 		expect(index.getCasualitiesByPClass(data, 2)).toBe(97)
 		expect(index.getCasualitiesByPClass(data, 3)).toBe(372)
 	})
 
-	test('Test getUniqueValues', () => {
+	test.skip('Test getUniqueValues', () => {
 		expect(index.getUniqueValues(data, 'pclass').sort()).toEqual([3, 2, 1].sort())
 		expect(index.getUniqueValues(data, 'embarked').sort()).toEqual(['C', 'S', 'Q', undefined].sort())
 		expect(index.getUniqueValues(data, 'sex').sort()).toEqual(['male', 'female'].sort())
